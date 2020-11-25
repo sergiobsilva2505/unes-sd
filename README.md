@@ -11,7 +11,8 @@
  <a href="#autor">Autor</a>
 </p>
 <br>
-<h4 align="center"> 
-	🚧  Unes-SD 🚀 Em construção...  🚧
+<h2>Status do projeto</h2>
+<h4> 
+ Unes-SD  Em construção...
 </h4>
 
