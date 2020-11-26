@@ -53,11 +53,11 @@ public class UnesApplication implements CommandLineRunner {
 		professorRepository
 				.saveAll(Arrays.asList(prof1, prof2, prof3, prof4, prof5, prof6, prof7, prof8, prof9, prof10));
 
-		Curso curso1 = new Curso(null, "Administração", "Curso para formção de gestores.", prof7);
-		Curso curso2 = new Curso(null, "Nutrição", "Seja cum coach da boa alimentação.", prof8);
-		Curso curso3 = new Curso(null, "Pedagogia", "Se torne um verdadeiro mestre.", prof2);
-		Curso curso4 = new Curso(null, "Fisioterapia", "Paciencia durante a recuperação é tudo.", prof1);
-		Curso curso5 = new Curso(null, "Educação Fisica", "Corpo em movimento", prof6);
+		Curso curso1 = new Curso(null, "Administração", "ADM", prof7);
+		Curso curso2 = new Curso(null, "Nutrição", "NUT", prof8);
+		Curso curso3 = new Curso(null, "Pedagogia", "PED", prof2);
+		Curso curso4 = new Curso(null, "Fisioterapia", "FSO", prof1);
+		Curso curso5 = new Curso(null, "Educação Fisica", "EDF", prof6);
 
 		cursoRepository.saveAll(Arrays.asList(curso1, curso2, curso3, curso4, curso5));
 

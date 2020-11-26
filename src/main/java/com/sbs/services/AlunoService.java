@@ -12,20 +12,19 @@ import com.sbs.dto.AlunoDto;
 import com.sbs.dto.AlunoNewDto;
 import com.sbs.entities.Aluno;
 import com.sbs.repositories.AlunoRepository;
-import com.sbs.services.exceptions.DataIntegrityException;
 
 @Service
 public class AlunoService {
 
 	@Autowired
-	private AlunoRepository alunoRepository;	
+	private AlunoRepository alunoRepository;
 
 	// ***** INSERT *****
 	@Transactional
 	public Aluno insert(Aluno obj) {
 		obj.setId(null);
 		obj = alunoRepository.save(obj);
-		
+
 		return obj;
 	}
 
@@ -34,16 +33,6 @@ public class AlunoService {
 		Aluno newObj = findById(obj.getId());
 		updateData(newObj, obj);
 		return alunoRepository.save(newObj);
-	}
-
-	// ***** DELETE *****
-	public void delete(Integer id) {
-		findById(id);
-		try {
-			alunoRepository.deleteById(id);
-		} catch (DataIntegrityException e) {
-			throw new DataIntegrityException("Impossivel excluir!!");
-		}
 	}
 
 	// ***** FINDBYID *****
@@ -71,5 +60,4 @@ public class AlunoService {
 		return newAluno;
 	}
 
-	
 }

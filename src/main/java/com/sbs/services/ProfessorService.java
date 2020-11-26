@@ -11,66 +11,52 @@ import org.springframework.stereotype.Service;
 import com.sbs.dto.ProfessorDto;
 import com.sbs.entities.Professor;
 import com.sbs.repositories.ProfessorRepository;
-import com.sbs.services.exceptions.DataIntegrityException;
 
 @Service
 public class ProfessorService {
-	
+
 	@Autowired
 	private ProfessorRepository professorRepository;
-	
+
 	// ***** INSERT *****
-		@Transactional
-		public Professor insert(Professor obj) {
-			obj.setId(null);
-			obj = professorRepository.save(obj);
-			
-			return obj;
-		}
+	@Transactional
+	public Professor insert(Professor obj) {
+		obj.setId(null);
+		obj = professorRepository.save(obj);
 
-		// ***** UPDATE *****
-		public Professor update(Professor obj) {
-			Professor newObj = findById(obj.getId());
-			updateData(newObj, obj);
-			return professorRepository.save(newObj);
-		}
+		return obj;
+	}
 
-		// ***** DELETE *****
-		public void delete(Integer id) {
-			findById(id);
-			try {
-				professorRepository.deleteById(id);
-			} catch (DataIntegrityException e) {
-				throw new DataIntegrityException("Impossivel excluir!!");
-			}
-		}
+	// ***** UPDATE *****
+	public Professor update(Professor obj) {
+		Professor newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return professorRepository.save(newObj);
+	}
 
-		// ***** FINDBYID *****
-		public Professor findById(Integer id) {
-			Optional<Professor> obj = professorRepository.findById(id);
-			return obj.orElse(null);
-		}
+	// ***** FINDBYID *****
+	public Professor findById(Integer id) {
+		Optional<Professor> obj = professorRepository.findById(id);
+		return obj.orElse(null);
+	}
 
-		// ***** FINDALL *****
-		public List<Professor> findAll() {
-			return professorRepository.findAll();
-		}
+	// ***** FINDALL *****
+	public List<Professor> findAll() {
+		return professorRepository.findAll();
+	}
 
-		// **** MÉTODO AUXILIAR *****
-		private void updateData(Professor newObj, Professor obj) {
-			newObj.setNome(obj.getNome());
-		}
+	// **** MÉTODO AUXILIAR *****
+	private void updateData(Professor newObj, Professor obj) {
+		newObj.setNome(obj.getNome());
+	}
 
-		public Professor fromDto(ProfessorDto objDto) {
-			return new Professor(objDto.getId(), objDto.getNome());
-		}
+	public Professor fromDto(ProfessorDto objDto) {
+		return new Professor(objDto.getId(), objDto.getNome());
+	}
 
 //		public Professor fromNewDto(ProfessorNewDto obj) {
 //			Professor newProfessor = new Professor(null, obj.getNome());
 //			return newProfessor;
 //		}
-
-	
-	
 
 }

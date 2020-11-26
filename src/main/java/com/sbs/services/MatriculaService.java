@@ -15,6 +15,7 @@ import com.sbs.entities.Matricula;
 import com.sbs.repositories.AlunoRepository;
 import com.sbs.repositories.CursoRepository;
 import com.sbs.repositories.MatriculaRepository;
+import com.sbs.services.exceptions.DataIntegrityException;
 import com.sbs.services.exceptions.NoSuchAlunoException;
 import com.sbs.services.exceptions.NoSuchCursoException;
 import com.sbs.services.exceptions.ObjectNotFoundException;
@@ -49,6 +50,16 @@ public class MatriculaService {
 		obj.setId(null);
 		obj = matriculaRepository.save(obj);
 		return obj;
+	}
+	
+	//** DELETE MATRICuLA*/
+	public void delete(Integer id) {
+		findById(id);
+		try {
+			matriculaRepository.deleteById(id);
+		} catch (DataIntegrityException e) {
+			throw new DataIntegrityException("Impossivel deletar");
+		}
 	}
 
 	// ** métodos auxiliares */
