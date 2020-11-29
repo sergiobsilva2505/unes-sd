@@ -56,7 +56,8 @@ public class CursoService {
 	}
 
 	public Curso fromDto(CursoNewDto objDto) {
-		return new Curso(objDto.getId(), objDto.getNome(), null, null);
+		Professor prof = professorRepository.getOne(objDto.getIdProfessor());
+		return new Curso(objDto.getNome(), null, prof);
 	}
 
 	public Curso fromNewDto(CursoNewDto obj) {

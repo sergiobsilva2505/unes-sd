@@ -22,7 +22,7 @@ import com.sbs.services.AlunoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value="API REST Unes-SD")
+@Api(value = "API REST Unes-SD")
 @RestController
 @RequestMapping("/unes-sd")
 public class AlunoResource {
@@ -61,7 +61,5 @@ public class AlunoResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-
-	
 
 }

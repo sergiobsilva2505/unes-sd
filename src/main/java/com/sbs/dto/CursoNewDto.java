@@ -2,21 +2,13 @@ package com.sbs.dto;
 
 import java.io.Serializable;
 
-public class CursoNewDto implements Serializable{
+public class CursoNewDto implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	private Integer id;
+
 	private String nome;
 	private String descricao;
+	private String sigla;
 	private Integer idProfessor;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -41,7 +33,13 @@ public class CursoNewDto implements Serializable{
 	public void setIdProfessor(Integer idProfessor) {
 		this.idProfessor = idProfessor;
 	}
-	
-	
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
 
 }

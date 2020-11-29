@@ -40,6 +40,13 @@ public class Curso implements Serializable {
 
 	}
 
+	public Curso(String nome, String sigla, Professor professor) {
+		this.nome = nome;
+		this.sigla = sigla;
+		this.professor = professor;
+
+	}
+
 	public Integer getId() {
 		return id;
 	}

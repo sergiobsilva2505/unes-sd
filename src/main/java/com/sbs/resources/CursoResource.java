@@ -21,37 +21,37 @@ import com.sbs.services.CursoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value="API REST Unes-SD")
+@Api(value = "API REST Unes-SD")
 @RestController
 @RequestMapping("/unes-sd")
 public class CursoResource {
-	
+
 	@Autowired
 	private CursoService cursoService;
 
 	@ApiOperation(value = "Retorna um curso por Id. (select by id)")
-	@GetMapping(value = "/cursos/{id}", produces = "application/json")	
+	@GetMapping(value = "/cursos/{id}", produces = "application/json")
 	public ResponseEntity<?> findById(@PathVariable Integer id) {
 		Curso obj = cursoService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+
 	@ApiOperation(value = "Retorna todos os cursos. (select *)")
 	@GetMapping(value = "/cursos", produces = "application/json")
-	public ResponseEntity<List<Curso>> findAll(){
+	public ResponseEntity<List<Curso>> findAll() {
 		List<Curso> list = cursoService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@ApiOperation(value = "Atualiza curso. (update)")
 	@PutMapping(value = "/cursos{id}", produces = "application/json")
-	public ResponseEntity<Void> update(@RequestBody CursoNewDto objDto, @PathVariable Integer id){
+	public ResponseEntity<Void> update(@RequestBody CursoNewDto objDto, @PathVariable Integer id) {
 		Curso obj = cursoService.fromDto(objDto);
 		obj.setId(id);
 		obj = cursoService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@ApiOperation(value = "Salva curso. (insert)")
 	@PostMapping(value = "/cursos", produces = "application/json")
 	public ResponseEntity<Void> insert(@RequestBody CursoNewDto objNewDto) {
@@ -60,9 +60,5 @@ public class CursoResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
-	
-		
-	
 
 }

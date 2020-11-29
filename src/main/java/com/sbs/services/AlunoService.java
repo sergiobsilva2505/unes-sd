@@ -11,17 +11,23 @@ import org.springframework.stereotype.Service;
 import com.sbs.dto.AlunoDto;
 import com.sbs.dto.AlunoNewDto;
 import com.sbs.entities.Aluno;
+import com.sbs.entities.Curso;
 import com.sbs.repositories.AlunoRepository;
+import com.sbs.repositories.CursoRepository;
 
 @Service
 public class AlunoService {
 
 	@Autowired
 	private AlunoRepository alunoRepository;
+	
+	@Autowired
+	private CursoRepository cr;
 
 	// ***** INSERT *****
 	@Transactional
 	public Aluno insert(Aluno obj) {
+		//Optional<Curso> = cr.findById(obj.g);
 		obj.setId(null);
 		obj = alunoRepository.save(obj);
 

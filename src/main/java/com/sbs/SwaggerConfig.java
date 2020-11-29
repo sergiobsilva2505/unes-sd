@@ -23,24 +23,25 @@ public class SwaggerConfig {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sbs"))
-                .paths(regex("/unes-sd.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.sbs")) // .basePackage("com.sbs")
+                .paths(regex("/unes-sd.*")) // regex("/unes-sd.*")
                 .build()
-                .apiInfo(metaInfo());
+                .apiInfo(metaInfo()); // metaInfo()
     }
 
     private ApiInfo metaInfo() {
 
-        ApiInfo apiInfo = new ApiInfo(
-                "Unes-SD API Rest",
-                "Exemplo exclusivamente didático de uma API Rest",
-                "2.0",
-                "Termo de Servico",
+        ApiInfo apiInfo =new ApiInfo(
+                "Unes-SD API Rest", // Nome da API
+                "Exemplo exclusivamente didático de uma API Rest", // Descrição
+                "2.0", // Versão
+                "www.google.com", // URL Termo de Servico
                 new Contact(": Danilo, Diego, João Victor, Mathias, Michelle, Sergio",
                 		"https://github.com/sergiobsilva2505/unes-sd",
-                        "Sistemas Distribuidos"),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
+                        "sergiosilva.5017@aluno.saojudas.br"), // Contato
+                "Apache License Version 2.0", // Licença
+                "http://www.apache.org/licenses/LICENSE-2.0", // URL de licença
+                new ArrayList<VendorExtension>()
         );
 
         return apiInfo;
