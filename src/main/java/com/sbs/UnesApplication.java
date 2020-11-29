@@ -61,7 +61,7 @@ public class UnesApplication implements CommandLineRunner {
 
 		cursoRepository.saveAll(Arrays.asList(curso1, curso2, curso3, curso4, curso5));
 
-		Aluno alu1 = new Aluno(null, "Michele Silva");
+		Aluno alu1 = new Aluno(null, "Sassa Mutema");
 		Aluno alu2 = new Aluno(null, "Julia Costa");
 		Aluno alu3 = new Aluno(null, "Mayara Silveira");
 		Aluno alu4 = new Aluno(null, "Bob Brown");
