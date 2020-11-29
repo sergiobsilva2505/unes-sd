@@ -32,21 +32,21 @@ public class ProfessorResource {
 	private ProfessorService professorService;
 
 	@ApiOperation(value = "Retorna o professor por id. (select by id)")
-	@GetMapping(value = "/professores/{id}", produces = "appication/json")
+	@GetMapping(value = "/professores/{id}", produces = "application/json")
 	public ResponseEntity<Professor> findById(@PathVariable Integer id) {
 		Professor obj = professorService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@ApiOperation(value = "Retorna todos os professores. (select *)")
-	@GetMapping(value = "/professores", produces = "appication/json")
+	@GetMapping(value = "/professores", produces = "application/json")
 	public ResponseEntity<List<Professor>> findAll() {
 		List<Professor> list = professorService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 
 	@ApiOperation(value = "Atulaiza professor. (update)")
-	@PutMapping(value = "/professores/{id}", produces = "appication/json")
+	@PutMapping(value = "/professores/{id}", produces = "application/json")
 	public ResponseEntity<Void> update(@RequestBody ProfessorDto objDto, @PathVariable Integer id) {
 		Professor obj = professorService.fromDto(objDto);
 		obj.setId(id);
@@ -55,7 +55,7 @@ public class ProfessorResource {
 	}
 
 	@ApiOperation(value = "Salva professor. (insert)")
-	@PostMapping(value = "/professores", produces = "appication/json")
+	@PostMapping(value = "/professores", produces = "application/json")
 	public ResponseEntity<Void> insert(@RequestBody ProfessorDto objNewDto) {
 		Professor obj = professorService.fromDto(objNewDto);
 		obj = professorService.insert(obj);
